@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="cube">
+    <!-- 모델의 초기 위치 및 오리엔테이션 -->
+    <pose>0 0 0 0 0 0</pose>
+
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      
+      <!-- 충돌 형상 정의 -->
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <!-- Gazebo는 model:// 프로토콜을 사용하여 모델 디렉터리 내 파일을 참조 -->
+            <uri>model://cube/meshes/cube.stl</uri>
+            <!-- 필요에 따라 scale 값 조정 -->
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <!-- 시각 형상 정의 -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://cube/meshes/cube.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- 필요에 따라 joint 등을 추가할 수 있습니다. -->
+  </model>
+</sdf>
