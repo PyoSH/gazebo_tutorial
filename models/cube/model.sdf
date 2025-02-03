@@ -27,6 +27,17 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
+
+        <material>
+          <shader type="vertex">
+            <vertex_shader>model://cube/shaders/uw_vetex.vert</vertex_shader>
+            <fragment_shader>model://cube/shaders/uw_fragment.frag</fragment_shader>
+          </shader>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+          <specular>0.5 0.5 0.5 1</specular>
+        </material>
+
       </visual>
     </link>
 
