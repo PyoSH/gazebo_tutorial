@@ -12,7 +12,9 @@
         <geometry>
           <mesh>
             <!-- Gazebo는 model:// 프로토콜을 사용하여 모델 디렉터리 내 파일을 참조 -->
-            <uri>model://cube/meshes/cube.stl</uri>
+            <!-- <uri>model://cube/meshes/cube.stl</uri> -->
+            <!-- <uri>model://cube/meshes/cube_checker.dae</uri> -->
+            <uri>file:///home/kriso/gazebo_tutorial/models/cube/meshes/cube_checker.dae</uri>
             <!-- 필요에 따라 scale 값 조정 -->
             <scale>1 1 1</scale>
           </mesh>
@@ -23,7 +25,7 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://cube/meshes/cube.stl</uri>
+            <uri>file:///home/kriso/gazebo_tutorial/models/cube/meshes/cube_checker.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -33,9 +35,9 @@
             <vertex_shader>model://cube/shaders/uw_vetex.vert</vertex_shader>
             <fragment_shader>model://cube/shaders/uw_fragment.frag</fragment_shader>
           </shader>
-          <ambient>1 1 1 1</ambient>
+          <!-- <ambient>1 1 1 1</ambient>
           <diffuse>1 1 1 1</diffuse>
-          <specular>0.5 0.5 0.5 1</specular>
+          <specular>0.5 0.5 0.5 1</specular> -->
         </material>
 
       </visual>
