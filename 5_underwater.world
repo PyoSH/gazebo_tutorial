@@ -14,7 +14,8 @@
     <!-- </physics> -->
 
     <scene>
-        <ambient>0.4 0.4 0.4 1</ambient>
+        <ambient>0 0 0 1</ambient>
+        <background>0 0 0 1</background>
         <!-- <fog>
             <type>exp2</type>
             <color>0 0 0 1</color>
@@ -84,7 +85,7 @@
 
     <model name='light_model'>
         <static>1</static>
-        <pose>0 0 3 0 0.64 3.14</pose>
+        <pose>-2 0 3 0 0.5 3.14</pose>
         <link name='light_source'>
             <collision name='light_collision'>
                 <geometry>
@@ -111,7 +112,7 @@
                     <range>30</range>
                     <linear>0.05</linear>
                 </attenuation>
-                <diffuse>0.5 1 1 1</diffuse>
+                <diffuse>1 1 1 1</diffuse>
                 <specular>1 1 1 1</specular>
                 <spot>
                     <inner_angle>0.9</inner_angle>
