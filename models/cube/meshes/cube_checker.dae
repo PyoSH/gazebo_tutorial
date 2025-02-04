@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 4.3.2 commit date:2024-12-16, commit time:21:10, hash:32f5fdce0a0a</authoring_tool>
     </contributor>
-    <created>2025-02-04T20:53:35</created>
-    <modified>2025-02-04T20:53:35</modified>
+    <created>2025-02-05T00:06:45</created>
+    <modified>2025-02-05T00:06:45</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -66,14 +66,14 @@
   <library_effects>
     <effect id="MyMaterial-effect">
       <profile_COMMON>
-        <newparam sid="checker_texture-surface">
+        <newparam sid="__png-surface">
           <surface type="2D">
-            <init_from>checker_texture</init_from>
+            <init_from>__png</init_from>
           </surface>
         </newparam>
-        <newparam sid="checker_texture-sampler">
+        <newparam sid="__png-sampler">
           <sampler2D>
-            <source>checker_texture-surface</source>
+            <source>__png-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -82,7 +82,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <texture texture="checker_texture-sampler" texcoord="UVMap"/>
+              <texture texture="__png-sampler" texcoord="UVMap"/>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -93,8 +93,8 @@
     </effect>
   </library_effects>
   <library_images>
-    <image id="checker_texture" name="checker_texture">
-      <init_from>checker_texture.png</init_from>
+    <image id="__png" name="__png">
+      <init_from>1.png</init_from>
     </image>
   </library_images>
   <library_materials>
@@ -125,10 +125,10 @@
             </accessor>
           </technique_common>
         </source>
-        <source id="Cube-mesh-map-0">
-          <float_array id="Cube-mesh-map-0-array" count="72">0.875 0.5 0.625 0.75 0.625 0.5 0.625 0.75 0.375 1 0.375 0.75 0.625 0 0.375 0.25 0.375 0 0.375 0.5 0.125 0.75 0.125 0.5 0.625 0.5 0.375 0.75 0.375 0.5 0.625 0.25 0.375 0.5 0.375 0.25 0.875 0.5 0.875 0.75 0.625 0.75 0.625 0.75 0.625 1 0.375 1 0.625 0 0.625 0.25 0.375 0.25 0.375 0.5 0.375 0.75 0.125 0.75 0.625 0.5 0.625 0.75 0.375 0.75 0.625 0.25 0.625 0.5 0.375 0.5</float_array>
+        <source id="Cube-mesh-map">
+          <float_array id="Cube-mesh-map-array" count="72">0.3333333 0.3333333 0 0 0.3333333 0 0 0.6666666 0.3333333 0.3333334 0.3333333 0.6666667 0.3333333 0.3333333 0.6666666 0 0.6666666 0.3333333 0.6666666 0.6666667 0.3333334 0.3333333 0.6666667 0.3333334 0 1 0.3333333 0.6666667 0.3333333 1 0.3333334 1 0.6666667 0.6666667 0.6666666 1 0.3333333 0.3333333 0 0.3333333 0 0 0 0.6666666 0 0.3333334 0.3333333 0.3333334 0.3333333 0.3333333 0.3333334 0 0.6666666 0 0.6666666 0.6666667 0.3333333 0.6666666 0.3333334 0.3333333 0 1 0 0.6666666 0.3333333 0.6666667 0.3333334 1 0.3333334 0.6666667 0.6666667 0.6666667</float_array>
           <technique_common>
-            <accessor source="#Cube-mesh-map-0-array" count="36" stride="2">
+            <accessor source="#Cube-mesh-map-array" count="36" stride="2">
               <param name="S" type="float"/>
               <param name="T" type="float"/>
             </accessor>
@@ -140,7 +140,7 @@
         <triangles material="MyMaterial-material" count="12">
           <input semantic="VERTEX" source="#Cube-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cube-mesh-normals" offset="1"/>
-          <input semantic="TEXCOORD" source="#Cube-mesh-map-0" offset="2" set="0"/>
+          <input semantic="TEXCOORD" source="#Cube-mesh-map" offset="2" set="0"/>
           <p>4 0 0 2 0 1 0 0 2 2 1 3 7 1 4 3 1 5 6 2 6 5 2 7 7 2 8 1 3 9 7 3 10 5 3 11 0 4 12 3 4 13 1 4 14 4 5 15 1 5 16 5 5 17 4 6 18 6 6 19 2 6 20 2 7 21 6 7 22 7 7 23 6 8 24 4 8 25 5 8 26 1 9 27 3 9 28 7 9 29 0 10 30 2 10 31 3 10 32 4 11 33 0 11 34 1 11 35</p>
         </triangles>
       </mesh>
@@ -161,9 +161,7 @@
         <instance_geometry url="#Cube-mesh" name="Cube">
           <bind_material>
             <technique_common>
-              <instance_material symbol="MyMaterial-material" target="#MyMaterial-material">
-                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
-              </instance_material>
+              <instance_material symbol="MyMaterial-material" target="#MyMaterial-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
